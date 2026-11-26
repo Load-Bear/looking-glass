@@ -14,7 +14,7 @@ That's it. It opens in your browser and starts working.
 
 These put the app online **and** set up the relay for you. Nothing to copy or paste: the app finds its relay by itself.
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/jhalsey09-netizen/looking-glass) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jhalsey09-netizen/looking-glass) [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/jhalsey09-netizen/looking-glass)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/Load-Bear/looking-glass) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Load-Bear/looking-glass) [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Load-Bear/looking-glass)
 
 Pick one, sign in with GitHub, click **Deploy**. Cloudflare's free plan is the most generous (100,000 relay requests a day). Railway and Render also work but are not free for always-on use.
 
@@ -50,7 +50,7 @@ Go to aistudio.google.com/apikey, sign in with Google, click **Create API key**,
 
 **More news and data (3 minutes).** Some sources block websites from reading them. A free helper on Cloudflare passes them through.
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/jhalsey09-netizen/looking-glass/tree/main/relay)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/Load-Bear/looking-glass/tree/main/relay)
 
 Click the button, sign in to Cloudflare, click **Deploy**, then paste the address it gives you (ending in `.workers.dev`) into Quick start.
 
