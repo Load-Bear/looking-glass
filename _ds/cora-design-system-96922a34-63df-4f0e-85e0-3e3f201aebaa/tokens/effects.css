@@ -1,0 +1,48 @@
+/* ============================================================
+   CORA — EFFECTS: elevation, glow, motion
+   On a dark field, depth reads through GLOW + subtle shadow +
+   a hairline top-light border, not heavy drop shadows.
+   ============================================================ */
+:root {
+  /* Elevation (shadow) — restrained on dark */
+  --shadow-sm:   0 2px 8px rgba(0,0,0,0.35);
+  --shadow-card: 0 12px 32px rgba(0,0,0,0.45);
+  --shadow-pop:  0 20px 56px rgba(0,0,0,0.60);
+
+  /* Signal glow — Cora's presence. Used on active/voice/focus. */
+  --glow-signal:      0 0 24px rgba(79,227,193,0.35);
+  --glow-signal-soft: 0 0 12px rgba(79,227,193,0.22);
+  --glow-signal-lg:   0 0 48px rgba(79,227,193,0.45);
+  --glow-ember:       0 0 24px rgba(255,158,94,0.35);
+  --glow-alert:       0 0 20px rgba(255,107,107,0.35);
+
+  /* Inner top-light — the "screen bevel" that lifts panels */
+  --edge-light: inset 0 1px 0 rgba(255,255,255,0.05); /* @kind shadow */
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 2px var(--cora-abyss), 0 0 0 4px var(--cora-signal);
+
+  /* Ambient field gradient — behind the Command hub */
+  --field-radial: radial-gradient(120% 120% at 50% 0%, #101a26 0%, #0a0e15 45%, #05070a 100%); /* @kind other */
+
+  /* Motion — calm, precise. No bounce; confident ease. */
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --dur-fast:  120ms; /* @kind other */
+  --dur-base:  220ms; /* @kind other */
+  --dur-slow:  420ms; /* @kind other */
+  --dur-breathe: 4200ms; /* @kind other */ /* orb / ambient pulse */
+}
+
+/* Signature ambient keyframes reusable across cards & kits */
+@keyframes cora-breathe {
+  0%, 100% { transform: scale(1);    opacity: 0.85; }
+  50%      { transform: scale(1.04); opacity: 1;    }
+}
+@keyframes cora-orbit {
+  to { transform: rotate(360deg); }
+}
+@keyframes cora-listen {
+  0%, 100% { transform: scaleY(0.35); }
+  50%      { transform: scaleY(1);    }
+}

@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/relay",
+      "destination": "/api/relay"
+    },
+    {
+      "source": "/",
+      "destination": "/Looking Glass.html"
+    }
+  ]
+}

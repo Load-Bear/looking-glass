@@ -1,0 +1,24 @@
+{
+  "name": "Looking Glass",
+  "short_name": "Looking Glass",
+  "description": "A live 3D globe of what is happening in the world.",
+  "start_url": "./Looking%20Glass.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0A0C0F",
+  "theme_color": "#0A0C0F",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Looking Glass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#05070A;color:#E8EEF5;font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#4FE3C1;text-decoration:none}
+a:hover{color:#B8F2FF}
+@keyframes lgPulse{0%,100%{opacity:.55}50%{opacity:1}}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column;background:radial-gradient(1200px 600px at 50% -10%, #0B1A22 0%, #05070A 60%)">
+
+  <header style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px clamp(20px,5vw,64px);border-bottom:1px solid #10161F">
+    <div style="display:flex;align-items:center;gap:12px">
+      <svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true">
+        <defs><radialGradient id="lh" cx="50%" cy="46%" r="58%"><stop offset="0" stop-color="#F2FDFF"></stop><stop offset="0.3" stop-color="#8FE3FF"></stop><stop offset="0.65" stop-color="#2F8FE0"></stop><stop offset="1" stop-color="#0A2D6B"></stop></radialGradient></defs>
+        <circle cx="20" cy="20" r="17.4" fill="#3A4452" stroke="#1A2029" stroke-width="0.6"></circle>
+        <circle cx="20" cy="20" r="15.2" fill="#262E39"></circle>
+        <circle cx="20" cy="20" r="13.9" fill="none" stroke="#9AA6B5" stroke-width="0.5" stroke-dasharray="0.6 1.6"></circle>
+        <circle cx="20" cy="20" r="12.6" fill="#1A2029"></circle>
+        <circle cx="20" cy="20" r="12" fill="url(#lh)"></circle>
+        <g fill="#FF9E3D">
+          <path d="M18.4 1.4h3.2L20 4.4z"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(40 20 20)"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(80 20 20)"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(120 20 20)"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(160 20 20)"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(200 20 20)"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(240 20 20)"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(280 20 20)"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(320 20 20)"></path>
+        </g>
+      </svg>
+      <span style="font-size:18px;font-weight:500;letter-spacing:-0.01em">Looking Glass</span>
+    </div>
+    <nav style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+      <a href="#ways" style="color:#8A97A8;font-size:14px">Features</a>
+      <a href="#run" style="color:#8A97A8;font-size:14px">Run it yourself</a>
+      <a href="Looking Glass.html" style="display:flex;align-items:center;padding:9px 16px;border-radius:999px;background:#4FE3C1;color:#05070A;font-size:14px;font-weight:500">Open the globe</a>
+    </nav>
+  </header>
+
+  <section style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;padding:clamp(72px,12vw,140px) clamp(20px,5vw,64px) 64px">
+    <div style="display:flex;align-items:center;gap:8px;font:500 12px/1 'IBM Plex Mono',monospace;letter-spacing:0.18em;text-transform:uppercase;color:#4FE3C1">
+      <span style="width:7px;height:7px;border-radius:50%;background:#4FE3C1;animation:lgPulse 2s ease-in-out infinite"></span>
+      <span>Open source · runs in your browser</span>
+    </div>
+    <h1 style="margin:0;max-width:16ch;font-size:clamp(40px,7vw,88px);line-height:1.02;font-weight:600;letter-spacing:-0.035em;text-wrap:balance">The whole planet, live. <span style="color:#4FE3C1">Read it your way.</span></h1>
+    <p style="margin:0;max-width:60ch;font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:#9AA6B5;text-wrap:pretty">Conflict, markets, weather, space, shipping, flights and news from hundreds of public sources, on one 3D globe. Ask questions in plain English, test patterns against chance, and zoom from orbit to street level.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+      <a href="Looking Glass.html" style="display:flex;align-items:center;padding:14px 24px;border-radius:999px;background:#4FE3C1;color:#05070A;font-size:16px;font-weight:500">Open the globe</a>
+      <a href="#run" style="display:flex;align-items:center;padding:14px 24px;border-radius:999px;border:1px solid #243040;color:#E8EEF5;font-size:16px">Host your own copy</a>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,5vw,64px) 96px">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:#10161F;border:1px solid #10161F;border-radius:16px;overflow:hidden">
+      <div style="background:#070A0E;padding:28px 24px;display:flex;flex-direction:column;gap:8px"><b style="font-size:48px;line-height:1;font-weight:600;letter-spacing:-0.03em">9</b><span style="color:#8A97A8;font-size:15px">Categories</span></div>
+      <div style="background:#070A0E;padding:28px 24px;display:flex;flex-direction:column;gap:8px"><b style="font-size:48px;line-height:1;font-weight:600;letter-spacing:-0.03em">280+</b><span style="color:#8A97A8;font-size:15px">Data providers</span></div>
+      <div style="background:#070A0E;padding:28px 24px;display:flex;flex-direction:column;gap:8px"><b style="font-size:48px;line-height:1;font-weight:600;letter-spacing:-0.03em">250+</b><span style="color:#8A97A8;font-size:15px">News feeds</span></div>
+      <div style="background:#070A0E;padding:28px 24px;display:flex;flex-direction:column;gap:8px"><b style="font-size:48px;line-height:1;font-weight:600;letter-spacing:-0.03em">39</b><span style="color:#8A97A8;font-size:15px">Panels</span></div>
+      <div style="background:#070A0E;padding:28px 24px;display:flex;flex-direction:column;gap:8px"><b style="font-size:48px;line-height:1;font-weight:600;letter-spacing:-0.03em">16</b><span style="color:#8A97A8;font-size:15px">Map layers</span></div>
+    </div>
+  </section>
+
+  <section id="ways" style="padding:96px clamp(20px,5vw,64px);border-top:1px solid #10161F">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:720px">
+        <span style="font:500 12px/1 'IBM Plex Mono',monospace;letter-spacing:0.18em;text-transform:uppercase;color:#4FE3C1">Pick a starting point</span>
+        <h2 style="margin:0;font-size:clamp(32px,4.5vw,56px);line-height:1.05;font-weight:600;letter-spacing:-0.03em;text-wrap:balance">Every panel opens straight into the live globe.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
+        <sc-for list="{{ tiles }}" as="t" hint-placeholder-count="12">
+          <a href="{{ t.href }}" style="display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:14px;border:1px solid #141C27;background:#080B10;color:#E8EEF5;min-height:150px" style-hover="border-color:#2A3A4C;background:#0B1017;color:#E8EEF5">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+              <span style="font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:0.14em;text-transform:uppercase;color:{{ t.color }}">{{ t.group }}</span>
+              <span style="color:#5B6878;font-size:16px">→</span>
+            </div>
+            <span style="font-size:22px;font-weight:500;letter-spacing:-0.015em">{{ t.name }}</span>
+            <span style="font-size:15px;line-height:1.5;color:#8A97A8;text-wrap:pretty">{{ t.desc }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="run" style="padding:96px clamp(20px,5vw,64px);border-top:1px solid #10161F">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="font:500 12px/1 'IBM Plex Mono',monospace;letter-spacing:0.18em;text-transform:uppercase;color:#4FE3C1">Run it yourself</span>
+        <h2 style="margin:0;font-size:clamp(32px,4.5vw,56px);line-height:1.05;font-weight:600;letter-spacing:-0.03em">One HTML file. Your keys stay in your browser.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#9AA6B5;max-width:52ch">No account and no server of ours. Most sources work with no setup. A free relay unlocks feeds that block browsers, and any AI you choose powers the analyst.</p>
+      </div>
+      <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px">
+        <li style="display:flex;gap:16px;padding:20px;border-radius:14px;border:1px solid #141C27;background:#080B10"><span style="font:500 14px/1.6 'IBM Plex Mono',monospace;color:#4FE3C1">01</span><div style="display:flex;flex-direction:column;gap:4px"><b style="font-weight:500;font-size:17px">Download the release</b><span style="color:#8A97A8;font-size:15px;line-height:1.5">Open Looking Glass.html in any modern browser.</span></div></li>
+        <li style="display:flex;gap:16px;padding:20px;border-radius:14px;border:1px solid #141C27;background:#080B10"><span style="font:500 14px/1.6 'IBM Plex Mono',monospace;color:#4FE3C1">02</span><div style="display:flex;flex-direction:column;gap:4px"><b style="font-weight:500;font-size:17px">Deploy the relay</b><span style="color:#8A97A8;font-size:15px;line-height:1.5">Paste looking-glass-worker.js into a free Cloudflare Worker. About five minutes.</span></div></li>
+        <li style="display:flex;gap:16px;padding:20px;border-radius:14px;border:1px solid #141C27;background:#080B10"><span style="font:500 14px/1.6 'IBM Plex Mono',monospace;color:#4FE3C1">03</span><div style="display:flex;flex-direction:column;gap:4px"><b style="font-weight:500;font-size:17px">Connect an AI</b><span style="color:#8A97A8;font-size:15px;line-height:1.5">Your Anthropic key, any OpenAI-compatible service, or a free local model through Ollama.</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <footer style="margin-top:auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:28px clamp(20px,5vw,64px);border-top:1px solid #10161F;color:#5B6878;font-size:14px">
+    <span>Looking Glass · public data, no tracking</span>
+    <a href="Looking Glass.html" style="color:#8A97A8">Open the globe →</a>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const T = [
+      ['signal', 'Overview', '#E8EEF5', 'World signal', 'A 72-hour spectrogram of earthquakes, solar activity, the Schumann resonance, the Moon and news. White cells are extreme spikes.'],
+      ['lab', 'Overview', '#B8F2FF', 'Pattern lab', 'Tests whether crime, conflict, quakes and space weather move with the Moon or each other, against shuffled copies of the data.'],
+      ['analyst', 'Overview', '#4FE3C1', 'Ask the analyst', 'Plain-English questions about any country, county or city, answered from live data.'],
+      ['pulse', 'Overview', '#FF9E5E', 'Country pulse', 'An instability score for every country from conflict, unrest, outages and hazards.'],
+      ['verify', 'Overview', '#FFC24B', 'Conflicting reports', 'When outlets disagree, each version is scored on sources, source type and timing.'],
+      ['pm', 'Overview', '#4FE3C1', 'Predictions', 'Prediction-market odds next to our own forecasts.'],
+      ['threats', 'Security', '#FF6B6B', 'Conflicts', 'Strikes, clashes and attacks, placed on the globe as they are reported.'],
+      ['flights', 'Infrastructure', '#5EE0E0', 'Flights', 'Live aircraft positions worldwide.'],
+      ['shipping', 'Infrastructure', '#9FD4FF', 'Shipping & trade', 'Chokepoints, port traffic and freight rates.'],
+      ['hazards', 'Environment', '#FF9E5E', 'Hazards & weather', 'Earthquakes, wildfires, storms and official warnings.'],
+      ['space', 'Environment', '#56D98C', 'Space weather', 'The Sun in four wavelengths, solar flares, geomagnetic storms and live Schumann charts.'],
+      ['travel', 'Overview', '#4FE3C1', 'Travel planner', 'Risks, weather and advisories for any destination before you go.']
+    ];
+    return { tiles: T.map(([m, group, color, name, desc]) => ({ href: 'Looking Glass.html#m=' + m, group, color, name, desc })) };
+  }
+}
+</script>
+</body>
+</html>

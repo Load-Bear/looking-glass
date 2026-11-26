@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Looking Glass</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#04060A;color:#E8EEF5;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#4FE3C1;text-decoration:none}
+a:hover{color:#B8F2FF}
+@keyframes lgBlink{0%,100%{opacity:.35}50%{opacity:1}}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:20;display:flex;flex-direction:column;background:rgba(4,6,10,0.82);backdrop-filter:blur(14px);border-bottom:1px solid #10161F">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(20px,4vw,48px)">
+      <a href="#top" style="display:flex;align-items:center;gap:10px;color:#E8EEF5">
+        <svg viewBox="0 0 40 40" width="30" height="30" aria-hidden="true"><defs><radialGradient id="lh2" cx="50%" cy="46%" r="58%"><stop offset="0" stop-color="#F2FDFF"></stop><stop offset="0.3" stop-color="#8FE3FF"></stop><stop offset="0.65" stop-color="#2F8FE0"></stop><stop offset="1" stop-color="#0A2D6B"></stop></radialGradient></defs><circle cx="20" cy="20" r="17.4" fill="#3A4452"></circle><circle cx="20" cy="20" r="15.2" fill="#262E39"></circle><circle cx="20" cy="20" r="13.9" fill="none" stroke="#9AA6B5" stroke-width="0.5" stroke-dasharray="0.6 1.6"></circle><circle cx="20" cy="20" r="12.6" fill="#1A2029"></circle><circle cx="20" cy="20" r="12" fill="url(#lh2)"></circle><g fill="#FF9E3D"><path d="M18.4 1.4h3.2L20 4.4z"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(40 20 20)"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(80 20 20)"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(120 20 20)"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(160 20 20)"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(200 20 20)"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(240 20 20)"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(280 20 20)"></path><path d="M18.4 1.4h3.2L20 4.4z" transform="rotate(320 20 20)"></path></g></svg>
+        <span style="font-family:'Unbounded',sans-serif;font-size:15px;font-weight:600;letter-spacing:0.01em">LOOKING GLASS</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:24px">
+        <a href="#ask" style="color:#8A97A8;font-size:14px">What it answers</a>
+        <a href="#sources" style="color:#8A97A8;font-size:14px">Sources</a>
+        <a href="#run" style="color:#8A97A8;font-size:14px">Self-host</a>
+        <a href="Looking Glass.html" style="display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:8px;background:#E8EEF5;color:#04060A;font-size:14px;font-weight:500" style-hover="background:#FFFFFF;color:#04060A">Launch <span>↗</span></a>
+      </nav>
+    </div>
+    <div style="display:flex;align-items:center;gap:20px;padding:8px clamp(20px,4vw,48px);border-top:1px solid #0C1118;font:400 12px/1.4 'Geist Mono',monospace;color:#5B6878;overflow-x:auto;white-space:nowrap">
+      <span style="display:flex;align-items:center;gap:6px;color:#4FE3C1"><span style="width:6px;height:6px;border-radius:50%;background:#4FE3C1;animation:lgBlink 1.6s ease-in-out infinite"></span>LIVE</span>
+      <sc-for list="{{ ticker }}" as="k" hint-placeholder-count="5">
+        <span style="display:flex;gap:6px"><span>{{ k.l }}</span><span style="color:#C9D3DF">{{ k.v }}</span></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <section id="top" style="padding:clamp(56px,9vw,112px) clamp(20px,4vw,48px) 48px">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:clamp(40px,5vw,72px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:28px">
+        <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.16em;text-transform:uppercase;color:#5B6878">Open-source situational awareness</span>
+        <h1 style="margin:0;font-family:'Unbounded',sans-serif;font-size:clamp(38px,5.6vw,76px);line-height:0.98;font-weight:600;letter-spacing:-0.04em;text-wrap:balance">See what the planet is doing <span style="color:#4FE3C1">right now.</span></h1>
+        <p style="margin:0;max-width:46ch;font-size:clamp(17px,1.4vw,19px);line-height:1.55;color:#9AA6B5;text-wrap:pretty">Conflict, markets, hazards, space weather and the news, merged onto one live 3D globe. Ask it anything, check which reports agree, and see what is spiking together.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="Looking Glass.html" style="display:flex;align-items:center;gap:10px;padding:14px 20px;border-radius:10px;background:#4FE3C1;color:#04060A;font-size:16px;font-weight:600" style-hover="background:#7FF0D6;color:#04060A">Open the globe <span>→</span></a>
+          <a href="#run" style="display:flex;align-items:center;padding:14px 20px;border-radius:10px;border:1px solid #1E2836;color:#E8EEF5;font-size:16px" style-hover="border-color:#3A4A5E;color:#FFFFFF">Self-host in 5 minutes</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#10161F;border:1px solid #10161F;border-radius:12px;overflow:hidden;max-width:560px">
+          <div style="background:#070A0F;padding:14px;display:flex;flex-direction:column;gap:6px"><b style="font-family:'Unbounded',sans-serif;font-size:22px;font-weight:500">280+</b><span style="font:400 11px/1.3 'Geist Mono',monospace;color:#5B6878;text-transform:uppercase;letter-spacing:0.06em">Providers</span></div>
+          <div style="background:#070A0F;padding:14px;display:flex;flex-direction:column;gap:6px"><b style="font-family:'Unbounded',sans-serif;font-size:22px;font-weight:500">250+</b><span style="font:400 11px/1.3 'Geist Mono',monospace;color:#5B6878;text-transform:uppercase;letter-spacing:0.06em">Feeds</span></div>
+          <div style="background:#070A0F;padding:14px;display:flex;flex-direction:column;gap:6px"><b style="font-family:'Unbounded',sans-serif;font-size:22px;font-weight:500">39</b><span style="font:400 11px/1.3 'Geist Mono',monospace;color:#5B6878;text-transform:uppercase;letter-spacing:0.06em">Panels</span></div>
+          <div style="background:#070A0F;padding:14px;display:flex;flex-direction:column;gap:6px"><b style="font-family:'Unbounded',sans-serif;font-size:22px;font-weight:500">16</b><span style="font:400 11px/1.3 'Geist Mono',monospace;color:#5B6878;text-transform:uppercase;letter-spacing:0.06em">Layers</span></div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;border:1px solid #141C27;background:#070A0F">
+          <image-slot id="lgl-hero" shape="rect" fit="cover" placeholder="Drop a screenshot of the globe"></image-slot>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:14px;border:1px solid #141C27;background:#070A0F">
+          <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline">
+            <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:#C9D3DF">World signal · 72 h</span>
+            <span style="font:400 12px/1.3 'Geist Mono',monospace;color:#5B6878">{{ hoverLabel }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px" onMouseLeave="{{ clearHover }}">
+            <sc-for list="{{ rows }}" as="r" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:84px minmax(0,1fr);gap:10px;align-items:center">
+                <span style="font:400 11px/1 'Geist Mono',monospace;color:{{ r.c }}">{{ r.n }}</span>
+                <div style="display:grid;grid-template-columns:repeat(72,minmax(0,1fr));gap:1px;height:14px">
+                  <sc-for list="{{ r.cells }}" as="x" hint-placeholder-count="72">
+                    <span style="background:{{ x.bg }};border-radius:1px" onMouseEnter="{{ x.hover }}"></span>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <span style="font-size:12px;line-height:1.45;color:#5B6878">Live from USGS, NOAA and GOES. White cells are extreme spikes. The full version adds the Schumann resonance and six news channels.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ask" style="padding:clamp(72px,9vw,120px) clamp(20px,4vw,48px);border-top:1px solid #10161F">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
+        <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.16em;text-transform:uppercase;color:#4FE3C1">Start with a question</span>
+        <h2 style="margin:0;font-family:'Unbounded',sans-serif;font-size:clamp(28px,3.6vw,48px);line-height:1.05;font-weight:600;letter-spacing:-0.035em;text-wrap:balance">Built around what you need to know.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:6px" role="tablist">
+          <sc-for list="{{ intents }}" as="it" hint-placeholder-count="5">
+            <button role="tab" onClick="{{ it.pick }}" style="all:unset;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px;border-radius:12px;border:1px solid {{ it.border }};background:{{ it.bg }}" style-hover="border-color:#2A3A4C">
+              <span style="display:flex;flex-direction:column;gap:4px">
+                <span style="font-size:18px;font-weight:500;color:{{ it.fg }}">{{ it.q }}</span>
+                <span style="font:400 12px/1.3 'Geist Mono',monospace;color:#5B6878">{{ it.panels }}</span>
+              </span>
+              <span style="color:{{ it.arrow }};font-size:18px">→</span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:20px;padding:24px;border-radius:16px;border:1px solid #141C27;background:#070A0F">
+          <div style="position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#04060A">
+            <sc-for list="{{ slots }}" as="s" hint-placeholder-count="1">
+              <div style="position:absolute;inset:0;display:{{ s.display }}">
+                <image-slot id="{{ s.id }}" shape="rect" fit="cover" placeholder="{{ s.ph }}"></image-slot>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-family:'Unbounded',sans-serif;font-size:22px;font-weight:500;letter-spacing:-0.02em">{{ sel.title }}</span>
+            <span style="font-size:16px;line-height:1.6;color:#9AA6B5;text-wrap:pretty">{{ sel.desc }}</span>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <sc-for list="{{ sel.data }}" as="d" hint-placeholder-count="4">
+              <span style="padding:5px 9px;border-radius:6px;background:#0D131B;border:1px solid #18212D;font:400 12px/1 'Geist Mono',monospace;color:#8A97A8">{{ d }}</span>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <sc-for list="{{ sel.links }}" as="l" hint-placeholder-count="2">
+              <a href="{{ l.href }}" style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;border:1px solid #1E2836;color:#E8EEF5;font-size:14px" style-hover="border-color:#4FE3C1;color:#4FE3C1">{{ l.name }} <span>↗</span></a>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sources" style="padding:clamp(72px,9vw,120px) clamp(20px,4vw,48px);border-top:1px solid #10161F">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px;align-items:end">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.16em;text-transform:uppercase;color:#4FE3C1">Sources</span>
+          <h2 style="margin:0;font-family:'Unbounded',sans-serif;font-size:clamp(28px,3.6vw,48px);line-height:1.05;font-weight:600;letter-spacing:-0.035em">Public data, credited every time.</h2>
+        </div>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#9AA6B5;max-width:52ch">Every number links back to where it came from. Add your own RSS, JSON or paid feeds in Connections.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1px;background:#10161F;border:1px solid #10161F;border-radius:16px;overflow:hidden">
+        <sc-for list="{{ sources }}" as="g" hint-placeholder-count="6">
+          <div style="background:#070A0F;padding:22px;display:flex;flex-direction:column;gap:12px">
+            <span style="font:500 11px/1 'Geist Mono',monospace;letter-spacing:0.14em;text-transform:uppercase;color:{{ g.c }}">{{ g.n }}</span>
+            <span style="font-size:15px;line-height:1.6;color:#C9D3DF">{{ g.list }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="run" style="padding:clamp(72px,9vw,120px) clamp(20px,4vw,48px);border-top:1px solid #10161F">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
+        <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.16em;text-transform:uppercase;color:#4FE3C1">Self-host</span>
+        <h2 style="margin:0;font-family:'Unbounded',sans-serif;font-size:clamp(28px,3.6vw,48px);line-height:1.05;font-weight:600;letter-spacing:-0.035em;text-wrap:balance">One file. Your keys never leave your browser.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px">
+        <div style="display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:14px;border:1px solid #141C27;background:#070A0F">
+          <span style="font-family:'Unbounded',sans-serif;font-size:32px;font-weight:500;color:#1E2836">01</span>
+          <b style="font-size:18px;font-weight:500">Download</b>
+          <span style="font-size:15px;line-height:1.55;color:#8A97A8">Open Looking Glass.html in any modern browser. Most sources work immediately.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:14px;border:1px solid #141C27;background:#070A0F">
+          <span style="font-family:'Unbounded',sans-serif;font-size:32px;font-weight:500;color:#1E2836">02</span>
+          <b style="font-size:18px;font-weight:500">Deploy the relay</b>
+          <span style="font-size:15px;line-height:1.55;color:#8A97A8">Paste looking-glass-worker.js into a free Cloudflare Worker to unlock feeds that block browsers.</span>
+          <code style="padding:10px 12px;border-radius:8px;background:#04060A;border:1px solid #141C27;font:400 12px/1.5 'Geist Mono',monospace;color:#9FD4FF;overflow-x:auto;white-space:nowrap">npx wrangler deploy looking-glass-worker.js</code>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:14px;border:1px solid #141C27;background:#070A0F">
+          <span style="font-family:'Unbounded',sans-serif;font-size:32px;font-weight:500;color:#1E2836">03</span>
+          <b style="font-size:18px;font-weight:500">Connect an AI</b>
+          <span style="font-size:15px;line-height:1.55;color:#8A97A8">Your Anthropic key, any OpenAI-compatible service, or a free local model through Ollama.</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:28px;border-radius:16px;background:linear-gradient(120deg,#0A1A1A,#070A0F 60%);border:1px solid #143029">
+        <span style="font-family:'Unbounded',sans-serif;font-size:clamp(20px,2.2vw,28px);font-weight:500;letter-spacing:-0.02em">Ready to look?</span>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="Looking Glass.html" style="display:flex;align-items:center;gap:10px;padding:14px 20px;border-radius:10px;background:#4FE3C1;color:#04060A;font-size:16px;font-weight:600" style-hover="background:#7FF0D6;color:#04060A">Open the globe →</a>
+          <a href="{{ repo }}" style="display:flex;align-items:center;padding:14px 20px;border-radius:10px;border:1px solid #1E2836;color:#E8EEF5;font-size:16px" style-hover="border-color:#3A4A5E;color:#FFFFFF">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:24px clamp(20px,4vw,48px);border-top:1px solid #10161F;font:400 12px/1.4 'Geist Mono',monospace;color:#5B6878">
+    <span>LOOKING GLASS · PUBLIC DATA · NO TRACKING</span>
+    <span>{{ footerTime }}</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;repoUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://github.com/&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { pick: 0, hov: null, q: [], kp: [], xr: [] };
+  componentDidMount() {
+    const j = u => fetch(u).then(r => r.ok ? r.json() : null).catch(() => null);
+    j('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson').then(d => d && this.setState({ q: d.features.map(f => ({ t: f.properties.time, m: f.properties.mag, p: f.properties.place })) }));
+    j('https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json').then(d => { if (!d) return; const rows = Array.isArray(d[0]) ? d.slice(1).map(r => ({ time_tag: r[0], Kp: r[1] })) : d; this.setState({ kp: rows.map(o => ({ t: Date.parse(String(o.time_tag).replace(' ', 'T') + (/Z$/.test(o.time_tag) ? '' : 'Z')), v: +(o.Kp ?? o.kp) })).filter(o => !isNaN(o.v)) }); });
+    j('https://services.swpc.noaa.gov/json/goes/primary/xrays-3-day.json').then(d => d && this.setState({ xr: d.filter(o => o.energy === '0.1-0.8nm' && o.flux > 0).map(o => ({ t: Date.parse(o.time_tag), v: o.flux })) }));
+    this.tick = setInterval(() => this.forceUpdate(), 60000);
+  }
+  componentWillUnmount() { clearInterval(this.tick); }
+  moon(t) { const SYN = 29.530588853, a = (((t - Date.UTC(2000, 0, 6, 18, 14)) / 864e5) % SYN + SYN) % SYN, ill = (1 - Math.cos(2 * Math.PI * a / SYN)) / 2, names = ['New moon', 'Waxing crescent', 'First quarter', 'Waxing gibbous', 'Full moon', 'Waning gibbous', 'Last quarter', 'Waning crescent']; return { ill, name: names[Math.floor(((a + SYN / 16) % SYN) / (SYN / 8)) % 8] }; }
+  xc(f) { return f >= 1e-4 ? 'X' + (f / 1e-4).toFixed(1) : f >= 1e-5 ? 'M' + (f / 1e-5).toFixed(1) : f >= 1e-6 ? 'C' + (f / 1e-6).toFixed(1) : f >= 1e-7 ? 'B' + (f / 1e-7).toFixed(1) : 'A'; }
+  heat(z) { if (z >= 3.5) return '#FFFFFF'; const k = Math.max(0, Math.min(1, (z + 1.5) / 5)), st = [[10, 14, 20], [12, 40, 72], [20, 110, 130], [79, 227, 193], [255, 210, 110], [255, 245, 225]], p = k * (st.length - 1), i = Math.floor(p), f = p - i, a = st[i], b = st[Math.min(i + 1, st.length - 1)]; return 'rgb(' + a.map((x, j) => Math.round(x + (b[j] - x) * f)).join(',') + ')'; }
+  zs(v) { const nz = v.filter(x => x > 0).sort((a, b) => a - b); if (!nz.length) return v.map(() => -2); const med = nz[Math.floor(nz.length / 2)], mad = nz.map(x => Math.abs(x - med)).sort((a, b) => a - b)[Math.floor(nz.length / 2)], sc = 1.4826 * mad || med * 0.25 || 1; return v.map(x => x > 0 ? (x - med) / sc : -2); }
+  renderVals() {
+    const H = 36e5, N = 72, now = Date.now(), t0 = Math.floor(now / H) * H - (N - 1) * H, bin = t => Math.floor((t - t0) / H), { q, kp, xr, hov, pick } = this.state;
+    const eq = Array(N).fill(0), kv = Array(N).fill(0), xv = Array(N).fill(0), qs = Array(N).fill(null).map(() => []);
+    q.forEach(o => { const i = bin(o.t); if (i >= 0 && i < N) { eq[i] += Math.pow(10, 1.5 * (o.m - 4)); qs[i].push(o); } });
+    kp.forEach(o => { for (let j = 0; j < 3; j++) { const i = bin(o.t + j * H); if (i >= 0 && i < N) kv[i] = o.v; } });
+    xr.forEach(o => { const i = bin(o.t); if (i >= 0 && i < N) xv[i] = Math.max(xv[i], o.v); });
+    const eqL = eq.map(v => v ? Math.log10(1 + v * 10) : 0), xL = xv.map(v => v ? Math.log10(v) + 9 : 0);
+    const mk = (n, c, z, fill) => ({ n, c, cells: z.map((zz, i) => ({ bg: fill ? fill(i) : this.heat(zz), hover: () => this.setState({ hov: i }) })) });
+    const rows = [mk('Seismic', '#FF6B6B', this.zs(eqL)), mk('Geomagnetic', '#56D98C', this.zs(kv)), mk('Solar X-ray', '#FFC24B', this.zs(xL)), mk('Moon', '#D9DEE6', [], null)];
+    rows[3].cells = Array(N).fill(0).map((_, i) => { const g = Math.round(14 + this.moon(t0 + i * H).ill * 150); return { bg: 'rgb(' + g + ',' + g + ',' + g + ')', hover: () => this.setState({ hov: i }) }; });
+    let hoverLabel = 'Hover a column';
+    if (hov != null) { const t = t0 + hov * H, big = qs[hov].sort((a, b) => b.m - a.m)[0]; hoverLabel = new Date(t).toUTCString().slice(5, 22) + ' UTC · ' + [big ? 'M' + big.m.toFixed(1) : null, kv[hov] ? 'Kp ' + kv[hov].toFixed(1) : null, xv[hov] ? this.xc(xv[hov]) : null, this.moon(t).name].filter(Boolean).join(' · '); }
+    const day = q.filter(o => o.t > now - 864e5), big = day.filter(o => o.m >= 4.5).length, lastKp = kp.length ? kp[kp.length - 1].v : null, lastX = xr.length ? xr[xr.length - 1].v : null, mo = this.moon(now);
+    const ticker = [{ l: 'UTC', v: new Date(now).toUTCString().slice(17, 22) }, { l: 'QUAKES M4.5+ 24H', v: q.length ? String(big) : '…' }, { l: 'KP', v: lastKp != null ? lastKp.toFixed(1) : '…' }, { l: 'X-RAY', v: lastX ? this.xc(lastX) : '…' }, { l: 'MOON', v: mo.name.toUpperCase() + ' ' + Math.round(mo.ill * 100) + '%' }];
+    const I = [
+      { q: 'What is happening near me?', title: 'Local, down to the county', desc: 'Pick any place on the globe and ask. Answers combine that area\'s headlines, hazards, weather warnings and forecast with the national and global events that affect it.', data: ['GDELT', 'NWS alerts', 'Open-Meteo', 'USGS', 'GDACS'], links: [['Ask the analyst', 'analyst'], ['Travel planner', 'travel']], ph: 'Drop a screenshot of the analyst' },
+      { q: 'Is this report true?', title: 'Conflicting reports, scored', desc: 'When outlets disagree on a death toll or who did what, each version gets a likelihood from how many sources confirm it, what kind of source they are, and how recent it is.', data: ['250+ news feeds', 'Wire services', 'Official records'], links: [['Conflicting reports', 'verify'], ['News', 'news']], ph: 'Drop a screenshot of conflicting reports' },
+      { q: 'Is something unusual going on?', title: 'Spikes that line up', desc: 'The world signal shows every channel hour by hour. The pattern lab tests whether crime, conflict, quakes and space weather move with the Moon or each other, against shifted copies of the data.', data: ['USGS', 'NOAA SWPC', 'GOES', 'Tomsk SOS-70', 'GDELT'], links: [['World signal', 'signal'], ['Pattern lab', 'lab']], ph: 'Drop a screenshot of the pattern lab' },
+      { q: 'Where is it getting worse?', title: 'Country pulse', desc: 'An instability score for every country from conflict, unrest, outages, hazards and government changes, with alerts when one crosses your threshold.', data: ['ACLED-style events', 'Cloudflare Radar', 'GDACS', 'ReliefWeb'], links: [['Country pulse', 'pulse'], ['Alerts', 'alerts']], ph: 'Drop a screenshot of country pulse' },
+      { q: 'What happens next?', title: 'Markets and forecasts', desc: 'Prediction-market odds next to an independent AI forecast that never sees the market price, plus food, fuel, credit and shipping signals.', data: ['Polymarket', 'Manifold', 'FRED', 'World Bank', 'Freightos'], links: [['Predictions', 'pm'], ['Our forecasts', 'forecasts']], ph: 'Drop a screenshot of predictions' }
+    ];
+    const s = I[pick];
+    return {
+      ticker, rows, hoverLabel, clearHover: () => this.setState({ hov: null }),
+      intents: I.map((it, i) => ({ q: it.q, panels: it.links.map(l => l[0]).join(' · '), pick: () => this.setState({ pick: i }), bg: i === pick ? '#0B1118' : 'transparent', border: i === pick ? '#2A3A4C' : '#10161F', fg: i === pick ? '#FFFFFF' : '#9AA6B5', arrow: i === pick ? '#4FE3C1' : '#2A3A4C' })),
+      sel: { title: s.title, desc: s.desc, data: s.data, links: s.links.map(([name, m]) => ({ name, href: 'Looking Glass.html#m=' + m })) },
+      slots: I.map((it, i) => ({ id: 'lgl-intent-' + i, ph: it.ph, display: i === pick ? 'block' : 'none' })),
+      sources: [
+        { n: 'Earth', c: '#FF9E5E', list: 'USGS · GDACS · NASA FIRMS · NWS · Open-Meteo · ReliefWeb' },
+        { n: 'Space', c: '#56D98C', list: 'NOAA SWPC · NASA DONKI · SDO · SOHO · Tomsk SOS-70' },
+        { n: 'Security', c: '#FF6B6B', list: 'GDELT · CISA KEV · wire services · think tanks' },
+        { n: 'Infrastructure', c: '#FFC24B', list: 'Cloudflare Radar · OpenSky · port and freight indices' },
+        { n: 'Economy', c: '#9FD4FF', list: 'FRED · World Bank · BLS · FDIC · FAO food prices' },
+        { n: 'Markets', c: '#C792FF', list: 'Polymarket · Manifold · global indices · crypto' }
+      ],
+      repo: this.props.repoUrl ?? 'https://github.com/',
+      footerTime: new Date(now).toUTCString().slice(0, 22) + ' UTC'
+    };
+  }
+}
+</script>
+</body>
+</html>

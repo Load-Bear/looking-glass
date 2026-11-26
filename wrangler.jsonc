@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "looking-glass",
+  "main": "relay/src/site-worker.js",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  "assets": { "directory": "./", "binding": "ASSETS" },
+  "vars": { "EXTRA_HOSTS": "" }
+}

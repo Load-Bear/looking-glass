@@ -1,0 +1,65 @@
+/* ============================================================
+   CORA — COLOR SYSTEM
+   Ambient home intelligence. A calm, cinematic dark foundation
+   with a single luminous "signal" accent (Cora's presence) and
+   a warm ember for attention/energy. Never pure black; layered
+   near-black surfaces with cool undertones.
+   ============================================================ */
+:root {
+  /* --- Base neutrals: deep space → light (cool undertone) --- */
+  --cora-void:        #05070A; /* deepest field — behind everything */
+  --cora-abyss:       #0A0E15; /* app background */
+  --cora-surface-1:   #10151F; /* raised card / panel */
+  --cora-surface-2:   #161D29; /* nested / higher surface */
+  --cora-surface-3:   #1E2735; /* hover / active surface */
+  --cora-line:        #243040; /* hairline border */
+  --cora-line-strong: #34435A; /* emphasized border */
+
+  /* --- Text (cool whites → muted) --- */
+  --cora-text-1:      #E9F1FB; /* primary */
+  --cora-text-2:      #9DB0C6; /* secondary */
+  --cora-text-3:      #607491; /* tertiary / muted */
+  --cora-text-disabled:#3A4658; /* disabled */
+
+  /* --- SIGNAL: Cora's luminous identity (aqua-mint) --- */
+  --cora-signal:      #4FE3C1; /* primary accent — the Cora glow */
+  --cora-signal-bright:#7CFFE6; /* hover / peak */
+  --cora-signal-dim:  #2AA88F; /* pressed / low-energy */
+  --cora-signal-soft: rgba(79,227,193,0.14); /* tint fill */
+  --cora-signal-line: rgba(79,227,193,0.38); /* tint border */
+
+  /* --- EMBER: warm counterpoint (attention, energy, human) --- */
+  --cora-ember:       #FF9E5E; /* warm amber */
+  --cora-ember-soft:  rgba(255,158,94,0.14);
+
+  /* --- Semantic --- */
+  --cora-online:      #56D98C; /* success / connected / active */
+  --cora-warn:        #FFC24B; /* warning */
+  --cora-alert:       #FF6B6B; /* danger / offline / alarm */
+  --cora-info:        #5EA8FF; /* informational */
+  --cora-online-soft: rgba(86,217,140,0.14);
+  --cora-warn-soft:   rgba(255,194,75,0.14);
+  --cora-alert-soft:  rgba(255,107,107,0.14);
+  --cora-info-soft:   rgba(94,168,255,0.14);
+
+  /* ---------- SEMANTIC ALIASES ---------- */
+  --bg-app:          var(--cora-abyss);
+  --bg-void:         var(--cora-void);
+  --surface-card:    var(--cora-surface-1);
+  --surface-raised:  var(--cora-surface-2);
+  --surface-hover:   var(--cora-surface-3);
+  --border-subtle:   var(--cora-line);
+  --border-strong:   var(--cora-line-strong);
+
+  --text-primary:    var(--cora-text-1);
+  --text-secondary:  var(--cora-text-2);
+  --text-muted:      var(--cora-text-3);
+  --text-disabled:   var(--cora-text-disabled);
+  --text-on-signal:  #04120E; /* dark text on signal-filled buttons */
+
+  --accent:          var(--cora-signal);
+  --accent-hover:    var(--cora-signal-bright);
+  --accent-press:    var(--cora-signal-dim);
+  --accent-fill:     var(--cora-signal-soft);
+  --accent-border:   var(--cora-signal-line);
+}
